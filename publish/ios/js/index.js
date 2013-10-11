@@ -26,16 +26,13 @@ $('#dis').on('pageinit', function(){
 
 	function fnGo(){
 		var tag = $('#kword').val();
-		//fnThesaurus(tag);
+		fnThesaurus(tag);
 		fnInstagram(tag);
 	};
 
 
 	function fnThesaurus(word){
-		var tag = word;
-		console.log(tag);
-		
-		var address = "http://words.bighugelabs.com/api/2/cd242e86697b9eac71be92244bb679ad/" + tag + "/json"
+		var address = "http://words.bighugelabs.com/api/2/cd242e86697b9eac71be92244bb679ad/" + word + "/json"
 		
         $.ajax({
             type: "GET",
@@ -43,15 +40,10 @@ $('#dis').on('pageinit', function(){
             dataType: "jsonp",
             jsonpCallback: 'fnFilter'
         });
-               
-       // $.getJSON(address, fnFilter);
-        //alert("Made it here");
 	};
 
 	function fnFilter(info){
 		alert("Made it here");
-		//Clear display space of previous serches
-		//$("#outputWords").html('<li id="message"><h2>Words</h2></li>');
 		console.log(info);
 	};
 
