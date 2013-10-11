@@ -11,12 +11,12 @@ $('#home').on('pageinit', function(){
 });	
 
 //Every time display page loads....
-$('#dis').on('pageshow', function(){
-
-	$("#kword").val("");   //Clear text field
-	$("#outputPhotos").html('<li id="message"><h2>Photos</h2></li>'); //Clear display area
-
-});
+//$('#dis').on('pageshow', function(){
+//
+//	$("#kword").val("");   //Clear text field
+//	$("#outputPhotos").html('<li id="message"><h2>Photos</h2></li>'); //Clear display area
+//	$("#outputWords").html('<li id="message"><h2>Done</h2></li>'); //Clear display area
+//});
 
 //First time display page loads....
 $('#dis').on('pageinit', function(){
@@ -26,16 +26,21 @@ $('#dis').on('pageinit', function(){
 
 	function fnGo(){
 		var tag = $('#kword').val();
-		fnThesaurus(tag);
 		//fnInstagram(tag);
+		fnThesaurus(tag);
+		//fnRhymeWord(tag);
+		//fnSeedWord();
+		
+
 	};
 
-
+	function fnFilter(info){
+		alert("Made it here");
+		console.log(info);
+	};
+	
 	function fnThesaurus(word){
-		var tag = word;
-		console.log(tag);
-		
-		var address = "http://words.bighugelabs.com/api/2/cd242e86697b9eac71be92244bb679ad/" + tag + "/json"
+		var address = "http://words.bighugelabs.com/api/2/cd242e86697b9eac71be92244bb679ad/" + word + "/json"
 		
         $.ajax({
             type: "GET",
@@ -44,19 +49,9 @@ $('#dis').on('pageinit', function(){
             jsonpCallback: 'fnFilter'
         });
         
-        
-       // $.getJSON(address, fnFilter);
-        
-        
-        //alert("Made it here");
+        console.log(word);
 	};
 
-	function fnFilter(info){
-		alert("Made it here");
-		//Clear display space of previous serches
-		//$("#outputWords").html('<li id="message"><h2>Words</h2></li>');
-		console.log(info);
-	};
 
 	//Search Instagram for users tag word
 	function fnInstagram(word) {
