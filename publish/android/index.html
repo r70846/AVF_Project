@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--   Russell Gaspard     		 -->
-<!--   AVF 1310, Project 1 	     -->
-<!--   Landing Page				 -->
+<!--   AVF 1310, Project 2 	     -->
+<!--   JSONP Data Demo   	     -->
 <html>
     <head>
 		<!--  Mobile Optimized -->
@@ -9,15 +9,14 @@
 		<meta name="HandheldFriendly" content="True"/>
 		<meta http-equiv="cleartype" content="on"/>
         <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />    
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />  
 	
 		<!-- StyleSheets -->
 		<link rel="stylesheet" href="css/jquery.mobile.structure-1.3.1.min.css" />
 		<link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css" />
 		<link href="css/index.css" rel="stylesheet" type="text/css" />
-        
-        <title>AVF Landing Page</title>
+          
+        <title>AVF Landing Page Droid</title>
     </head>
     <body>
 		<div id="main">
@@ -27,7 +26,7 @@
 				<header data-role="header" data-position="fixed" class="header">
 					<h1>AVF Landing</h1>
 				</header>
-				<section id="display">
+				<section id="author">
 					<ul>
 						<li>
 							Russell M Gaspard
@@ -35,6 +34,8 @@
 						<li>
 							AVF 1310
 						</li>
+					</ul>
+						<a href="display.html" data-ajax="false" data-role="button" data-icon="arrow-r" data-iconpos="right" id="start">Demo App Here!</a>
 					</ul>
 				</section>
 				<section data-roll="content">	
@@ -81,23 +82,34 @@
 					</ul>	
 				</section>
 			
-				<footer data-role="footer" data-position="fixed" class="footer">
-				
+				<footer data-role="footer" data-position="fixed" data-id="main" class="footer">
 				</footer>
 				
 			</section>
+			<section data-role="page" id="dis" data-add-back-btn="true" class="page">
 			
-
+				<header data-role="header" data-position="fixed" class="header">
+					<h1>Display Page</h1>
+				</header>
+				<section id="display">
+					<a href="#" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="a" id="goButton">Go Button</a>
+					<input type="text" name="kword" id="kword"  placeholder="Key Word" />
+					<ul id="outputWords">
+						<li id="wmessage"><h2>Words</h2></li>
+					</ul>
+					<ul id="outputPhotos">
+						<li id="pmessage"><h2>Photos</h2></li>
+					</ul>
+				</section>
+				<footer data-role="footer" data-position="fixed" data-id="main" class="footer">
+				</footer>
+			</section>
         </div>
         
 		<!-- JavaScript -->
-        <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="cordova.js"></script>  	
-        <script type="text/javascript" src="cordova_plugins.js"></script>
-        	
-        <script type="text/javascript" src="js/index.js"></script>
 		<script type="text/javascript" src="js/libs/jquery-2.0.3.min.js"></script>
 		<script type="text/javascript" src="js/libs/jquery.mobile-1.3.1.min.js"></script>
-		<script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
 	</body>
 </html>

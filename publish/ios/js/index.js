@@ -11,12 +11,12 @@ $('#home').on('pageinit', function(){
 });	
 
 //Every time display page loads....
-$('#dis').on('pageshow', function(){
-
-	$("#kword").val("");   //Clear text field
-	$("#outputPhotos").html('<li id="message"><h2>Photos</h2></li>'); //Clear display area
-
-});
+//$('#dis').on('pageshow', function(){
+//
+//	$("#kword").val("");   //Clear text field
+//	$("#outputPhotos").html('<li id="message"><h2>Photos</h2></li>'); //Clear display area
+//	$("#outputWords").html('<li id="message"><h2>Done</h2></li>'); //Clear display area
+//});
 
 //First time display page loads....
 $('#dis').on('pageinit', function(){
@@ -26,11 +26,19 @@ $('#dis').on('pageinit', function(){
 
 	function fnGo(){
 		var tag = $('#kword').val();
+		//fnInstagram(tag);
 		fnThesaurus(tag);
-		fnInstagram(tag);
+		//fnRhymeWord(tag);
+		//fnSeedWord();
+		
+
 	};
 
-
+	function fnFilter(info){
+		alert("Made it here");
+		console.log(info);
+	};
+	
 	function fnThesaurus(word){
 		var address = "http://words.bighugelabs.com/api/2/cd242e86697b9eac71be92244bb679ad/" + word + "/json"
 		
@@ -40,12 +48,10 @@ $('#dis').on('pageinit', function(){
             dataType: "jsonp",
             jsonpCallback: 'fnFilter'
         });
+        
+        console.log(word);
 	};
 
-	function fnFilter(info){
-		alert("Made it here");
-		console.log(info);
-	};
 
 	//Search Instagram for users tag word
 	function fnInstagram(word) {
