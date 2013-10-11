@@ -26,8 +26,8 @@ $('#dis').on('pageinit', function(){
 
 	function fnGo(){
 		var tag = $('#kword').val();
-		fnThesaurus(tag);
-		//fnInstagram(tag);
+		//fnThesaurus(tag);
+		fnInstagram(tag);
 	};
 
 
@@ -43,11 +43,8 @@ $('#dis').on('pageinit', function(){
             dataType: "jsonp",
             jsonpCallback: 'fnFilter'
         });
-        
-        
+               
        // $.getJSON(address, fnFilter);
-        
-        
         //alert("Made it here");
 	};
 
