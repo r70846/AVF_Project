@@ -10,6 +10,10 @@ document.addEventListener("deviceready", fnDeviceReady, false);
 
 	$(function() { fnDeviceReady() });
 	
+	
+		//Event binders	
+		$('#goButton').on('click', fnGo);
+
 		function fnDeviceReady() {
 		$("#outputWords").html('<span id="wlabel"><h2>Words:</h2></span>');
 		$("#photoList").html('');
@@ -79,7 +83,5 @@ document.addEventListener("deviceready", fnDeviceReady, false);
 		}); 
 	};
 	
-	
-	//Event binders	
-	$('#goButton').on('click', fnGo);
+
 	
