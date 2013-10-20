@@ -4,28 +4,33 @@
 // Mobile Development
 // Full Sail University
 
-/////// CODE FOR DISPLAY PAGE ////////////////////////////////
+
+
+/////// SET UP PAGE & EVENT BINDERS ////////////////////////////////
 
 document.addEventListener("deviceready", fnDeviceReady, false);
-
-	//$(function() { fnDeviceReady() });
 	
 function fnDeviceReady() {
-        alert("device ready");
+        //alert("device ready");
 		$("#outputDevice").html('');
 
         //Event binders
         $('#btnDevice').on('click', fnShowDevice);
         $('#btnBrowser').on('click', fnBrowser);
     
+        $('#btnSave').on('click', fnSave);
+        $('#btnList').on('click', fnList);
+        $('#btnClear').on('click', fnClear);
+    
+        $('#btnPosition').on('click', fnPosition);
+    
         $('#btnSnap').on('click', fnSnap);
 	};
 
-	function fnGo(eData){
-        alert("Hello?");
-		eData.preventDefault();
-        fnShowDevice();
-	};
+
+
+/////// NATIVE FEATURE 1: DEVICE SPECIFICATIONS /////////////////////////
+
 
     var fnShowDevice = function(eData) {
         eData.preventDefault();
@@ -39,7 +44,9 @@ function fnDeviceReady() {
         	'Device Version: '  + device.version  + '<br />'
         )
     };
-////////////////////////////////////////////////////////////////////
+
+
+/////// NATIVE FEATURE 2: IN-APP BROWSER //////////////////////////////
 
 function fnBrowser(eData){
     eData.preventDefault();
@@ -47,22 +54,54 @@ function fnBrowser(eData){
     var ref = window.open('http://www.nytimes.com', '_blank', 'location=yes');
 
 }
-////////////////////////////////////////////////////////////////////
 
-function fnSnap(eData){
+/////// NATIVE FEATURE 3: LOCAL STORAGE //////////////////////////////
+
+    function fnSave(eData){
+        eData.preventDefault();
+    
+            var key = Date.now();
+            var item = $('#kword').val();
+        
+            if(item != ''){
+                window.localStorage.setItem(key, item);
+                alert("item stored");
+                $('#kword').val('');
+            }else{
+                alert("no item value");
+            };
+     };
+        
+        
+    function fnList(eData){
+        eData.preventDefault();
+
+        var len = window.localStorage.length;
+        var sText = "";
+        
+        for (var i=0; i<len; i++){
+            //sText = sText + window.localStorage.key(i) + " : " + window.localStorage.item(i) + \n ;
+            var key = window.localStorage.key(i);
+            var item = window.localStorage.getItem(key);
+            sText = sText + key + " : " + item + "\n" ;
+        };
+        alert(sText);
+    };
+
+    function fnClear(eData){
+        eData.preventDefault();
+        window.localStorage.clear();
+        //window.localStorage.removeItem("key");
+    };
+
+
+
+function fnGo(eData){
     eData.preventDefault();
-    alert("camera");
-    navigator.camera.getPicture(onSuccess,onFail,
-        {quality: 50, destinationType: Camera.DestinationType.DATA_URL
-    });
+    var key = Date.now();
+    alert(key);
 };
 
-function onSuccess(imageData) {
-    $("#outputImage").src = "data:image/jpeg;base64," + imageData;
-}
 
-function onFail(message) {
-    alert('Failed because: ' + message);
-}
 
 

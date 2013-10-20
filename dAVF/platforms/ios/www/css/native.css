@@ -9,6 +9,7 @@ body{
 	background: #d8dff9;
 	background: #E0F2F7;
 	font-family:"Ariel", Sans-serif;
+	text-align:center;
 }
 
 header{
@@ -30,19 +31,24 @@ h1{
 form{
 	text-align:center;
 }
-	
-button#goButton{
-	height: 25px;
-}
 
 input{
 	font-size:14px;
+}
+
+
+
+button{
+	height: 40px;
+    width:  100px;
+	float: center;
 }
 
 button#home{
 	height: 30px;
 	float: left;
 }
+
 
 span {
 	font-size:14px;
@@ -61,4 +67,30 @@ div.imgWrap {
     background-color:black;
 
     max-width: 80%;
+}
+
+img.phonegap{
+    background-image:url(../img/phonegap.png);
+   background-repeat:no-repeat;
+  display:block;
+}
+
+img.iOS{
+    background-image:url(../img/ios.png);
+  background-repeat:no-repeat;
+  display:block;
+}
+
+img.Android{
+    background-image:url(../img/android.png);
+  background-repeat:no-repeat;
+    display:block;
+}
+
+section{
+    display:inline;
+    float:left;
+    text-align:left;
+    margin-left:50px;
+
 }
