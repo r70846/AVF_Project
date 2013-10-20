@@ -1,54 +1,52 @@
 // Russell Gaspard
-// Project 2
+// Project 3
 // AVF 1310
 // Mobile Development
 // Full Sail University
 
 
-
 /////// SET UP PAGE & EVENT BINDERS ////////////////////////////////
 
 document.addEventListener("deviceready", fnDeviceReady, false);
-	
+
 function fnDeviceReady() {
-        //alert("device ready");
+    //alert("device ready");
+    $("#output").html('<h2>Position:</h2>');        //Make sure we have a clean page to report to
     
-
+    //Event binders
+    $('#btnBrowser').on('click', fnBrowser);        //Launch function that uses native "in-app browser" funtionality to visit platform specifc site
+    $('#btnPosition').on('click', fnPosition);      //Launch function to report Latitude and Longitude via native "geolocation"
+    $('#btnHistory').on('click', fnHistory);        //Launch function to report position history as saved in native "local-storage"
+    $('#btnClear').on('click', fnClear);            //Launch function to clear native "local-storage" for this app
     
     
-		$("#output").html('');
-
-        //Event binders
-        $('#btnBrowser').on('click', fnBrowser);
-        $('#btnPosition').on('click', fnPosition);
-        $('#btnHistory').on('click', fnHistory);
-        $('#btnClear').on('click', fnClear);
-    
-        fnLogo();
-	};
+    fnLogo();                                       //Launch function that uses native "device" queries to detect platform & change logo
+};
 
 
+function fnGo() {
+    eData.preventDefault();
+    alert("hello");
+};
 
 /////// NATIVE FEATURE 1: DEVICE SPECIFICATIONS /////////////////////////
 
-
-    function fnLogo() {
-        var platform = device.platform;
-        
-        if(platform === "iOS" || platform === "Android"){
-            $('#platform').removeClass('phonegap').addClass(platform);
-        }
-    };
+var fnLogo = function () {
+    var platform = device.platform;                     //use native "device" querrry to detect platform
+    //alert(platform);
+    
+    if(platform === "iOS" || platform === "Android"){
+        $('#platform').removeClass('phonegap').addClass(platform);
+    }
+};                                                      //change class attribute of img tag to swap css background-image
 
 
 /////// NATIVE FEATURE 2: IN-APP BROWSER //////////////////////////////
 
-function fnBrowser(eData){
-    eData.preventDefault();
-    
-    var platform = device.platform;
-    
-    switch(platform){
+var fnBrowser = function (eData){
+    eData.preventDefault();                             //Prevent page reload from button push
+    var platform = device.platform;                     //use native "device" querrry to detect platform
+    switch(platform){                                   //switch statement uses appropriate site for in-app browser
         case "iOS":
             var ref = window.open('http://www.apple.com', '_blank', 'location=yes');
             break;
@@ -60,69 +58,53 @@ function fnBrowser(eData){
     };
 };
 
-
 /////// NATIVE FEATURE 3: Geolocation //////////////////////////////////////
 
-function fnPosition(eData) {
-    eData.preventDefault();
+var fnPosition = function (eData) {                      //Get geolocation data, set up callbacks
+    eData.preventDefault();                              //Prevent page reload from button push
     navigator.geolocation.getCurrentPosition(fnSuccess, fnError);
 };
 
 
-var fnSuccess = function(geo) {
-    var position = '<h2>Position:</h2><p>Latitude: ' + geo.coords.latitude + '</p><p>Longitude: '  +
-    geo.coords.longitude + '</p>';
-    $('#output').html(position);
-    fnSave(position);
+var fnSuccess = function (geo) {
+    var lat = geo.coords.latitude;                      //Get Latitude and Longitude
+    var lon = geo.coords.longitude;
+    var position = '<h2>Position:</h2><p>Latitude: ' + lat + '</p><p>Longitude: ' +  lon + '</p>';
+    $('#output').html(position);                        //Write results to the page
+    fnSave(position);                                   //Call function to record in local storage
 };
 
-function fnError(err) {
-    //alert(err.message );
-    var error = '<h2>Position:</h2><p>Error: ' + err.message + '</p>;
+var fnError = function (err) {
+    //alert(err.message );                              //Display and save error messages same way for testing
+    var error = '<h2>Position:</h2><p>Error: ' + err.message + '</p>';
     $('#output').html(error);
     fnSave(error);
 }
 
 /////// NATIVE FEATURE 4: LOCAL STORAGE //////////////////////////////
 
-    function fnSave(data){
-            var key = Date.now();
-            window.localStorage.setItem(key, data);
-     };
+var fnSave = function (data){
+	var key = Date.now();								//Create key in milliseconds
+	window.localStorage.setItem(key, data);				//Save data in local storage
+};
         
         
-    function fnHistory(eData){
-        eData.preventDefault();
-
-        var len = window.localStorage.length;
-        var sText = "<h2>History:</h2><ul>";
-        
-        for (var i=0; i<len; i++){
-            var key = window.localStorage.key(i);
-            var item = window.localStorage.getItem(key);
-            sText = sText + "<li>" + item + "</li>";
-        };
-            sText = sText + "</ul>";
-            $('#output').html(sText);
-    };
-
-    function fnClear(eData){
-        eData.preventDefault();
-        window.localStorage.clear();
-        $('#output').html('<h2>Position:</h2>');
-    };
-
-
-
-function fnGo(eData){
-    eData.preventDefault();
-    var key = Date.now();
-    alert(key);
+var fnHistory = function (eData){
+    eData.preventDefault();                             //Prevent page reload from button push
+	var len = window.localStorage.length;               //How many entries to loop through?
+	var sText = "<h2>History:</h2><ul>";                //Begin html string for history list
+	for (var i=0; i<len; i++){                          //Loop through local storage
+		var key = window.localStorage.key(i);           //Retrieve key
+		var item = window.localStorage.getItem(key);    //Retrieve item
+		sText = sText + "<li>" + item + "</li>";        //Append html string
+	};
+		sText = sText + "</ul>";                        //complete html string and publish to page
+		$('#output').html(sText);
 };
 
-
-
-
-
-
+var fnClear = function fnClear(eData){
+    eData.preventDefault();                             //Prevent page reload from button push
+	window.localStorage.clear();                        //Clear local storage & reset display area
+	$('#output').html('<h2>Position:</h2>');
+};
 
