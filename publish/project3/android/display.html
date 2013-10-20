@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--   Russell Gaspard        -->
+<!--   AVF 1310, Project 3 	  -->
+<!--   API Data Demo   	      -->
+<html>
+    <head>
+		<!--  Mobile Optimized -->
+        <meta charset="utf-8" />
+		<meta name="HandheldFriendly" content="True"/>
+		<meta http-equiv="cleartype" content="on"/>
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" />
+	
+		<!-- StyleSheets -->
+		<link href="css/display.css" rel="stylesheet" type="text/css" />
+        
+        <title>AVF Display Page Droid</title>
+    </head>
+    <body>
+			
+	<header class="header">
+		<a href="index.html"><button id="home">Home</button></a>
+		<h1>Display Page</h1>
+	</header>
+
+	<div id="display">
+	<hr/>
+		<form>
+			<!-- <a href="#" id="goButton">Go Button</a> -->
+			<button id="goButton">Go Button</button>
+            
+            
+			<input type="text" name="kword" id="kword"  placeholder="Key Word" />
+		</form>
+	<hr/>
+		<section id="outputWords">
+			<span id="wlabel"><h2>Words:</h2></span>
+		</section>
+		<section id="outputPhotos">
+			<span id="plabel"><h2>Photos:</h2></span>
+			<ul id="photoList">
+			</ul>
+		</section>
+	</div>
+				
+	<footer>
+	</footer>
+    
+		<!-- JavaScript -->
+        <script type="text/javascript" src="cordova.js"></script>  	
+		<script type="text/javascript" src="js/libs/jquery-2.0.3.min.js"></script>
+        <script type="text/javascript" src="js/display.js"></script>
+	</body>
+</html>
