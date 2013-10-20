@@ -1,5 +1,5 @@
 // Russell Gaspard
-// Project 2
+// Project 3
 // AVF 1310
 // Mobile Development
 // Full Sail University
@@ -12,6 +12,7 @@ document.addEventListener("deviceready", fnDeviceReady, false);
 	
 function fnDeviceReady() {
         //alert("device ready");
+    
 		$("#outputWords").html('<span id="wlabel"><h2>Words:</h2></span>');
 		$("#photoList").html('');
 		$('#kword').val('');

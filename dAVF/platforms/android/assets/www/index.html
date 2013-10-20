@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--   Russell Gaspard     		 -->
-<!--   AVF 1310, Project 2 	     -->
-<!--   JSONP Data Demo   	     -->
+<!--   AVF 1310, Project 3 	     -->
+<!--   APP Demo   	  		     -->
 <html>
     <head>
 		<!--  Mobile Optimized -->
@@ -16,7 +16,7 @@
 		<link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css" />
 		<link href="css/index.css" rel="stylesheet" type="text/css" />
           
-        <title>AVF Landing Page iOS</title>
+        <title>AVF Landing Page Droid</title>
     </head>
     <body>
 		<div id="main">
@@ -35,22 +35,32 @@
 							AVF 1310
 						</li>
 					</ul>
-						<a href="display.html" data-ajax="false" data-role="button" data-icon="arrow-r" data-iconpos="right" id="start">API App Here!</a>
-						<a href="native.html" data-ajax="false" data-role="button" data-icon="arrow-r" data-iconpos="right" id="start">Native App Here!</a>
+						<a href="display.html" data-ajax="false" data-role="button" data-icon="arrow-r" data-iconpos="right" id="api">API App Here!</a>
+						<a href="native.html" data-ajax="false" data-role="button" data-icon="arrow-r" data-iconpos="right" id="native">Native App Here!</a>
 				</section>
 				<section data-roll="content">	
 					<ul data-role="listview" data-inset="true">
 						<li data-role="list-divider" id="dnative">
-							Native Components
+							Native Feature Documentation
 						</li>
 						<li>
-							<a href="http://docs.phonegap.com/en/1.0.0/phonegap_camera_camera.md.html#Camera">
-								<h3>Camera</h3>
+							<a href="http://docs.phonegap.com/en/3.0.0/cordova_device_device.md.html">
+								<h3>Device Specifications</h3>
 							</a>
 						</li>
 						<li>
-							<a href="http://docs.phonegap.com/en/1.0.0/phonegap_geolocation_geolocation.md.html#Geolocation">
+							<a href="http://docs.phonegap.com/en/3.0.0/cordova_inappbrowser_inappbrowser.md.html">
+								<h3>Browser Functionality</h3>
+							</a>
+						</li>
+						<li>
+							<a href="http://docs.phonegap.com/en/3.0.0/cordova_geolocation_geolocation.md.html">
 								<h3>Geolocation</h3>
+							</a>
+						</li>
+						<li>
+							<a href="http://docs.phonegap.com/en/3.0.0/cordova_storage_storage.md.html">
+								<h3>Local Storage</h3>
 							</a>
 						</li>
 						<li data-role="list-divider" id="dresearch">
@@ -66,17 +76,22 @@
 								<h3>Mobile Usability</h3>
 							</a>
 						</li>
+						<li>
+							<a href="http://stackoverflow.com/questions/8244953/xcode-successfully-builds-my-target-but-does-not-run-the-product">
+								<h3>Help! Stackoverflow</h3>
+							</a>
+						</li>
 						<li data-role="list-divider" id="dapi">
-							Data APIs
+							Data API Documentation
 						</li>
 						<li>
 							<a href="http://instagram.com/developer/">
-								<h3>Instagram API</h3>
+								<h3>Instagram API Docs</h3>
 							</a>
 						</li>
 						<li>
-							<a href="http://instagram.com/developer/endpoints/">
-								<h3>Instagram URL Endpoints</h3>
+							<a href="http://words.bighugelabs.com/api.php">
+								<h3>Thesaurus API Docs</h3>
 							</a>
 						</li>				
 					</ul>	
@@ -85,24 +100,6 @@
 				<footer data-role="footer" data-position="fixed" data-id="main" class="footer">
 				</footer>
 				
-			</section>
-			<section data-role="page" id="dis" data-add-back-btn="true" class="page">
-			
-				<header data-role="header" data-position="fixed" class="header">
-					<h1>Display Page</h1>
-				</header>
-				<section id="display">
-					<a href="#" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="a" id="goButton">Go Button</a>
-					<input type="text" name="kword" id="kword"  placeholder="Key Word" />
-					<ul id="outputWords">
-						<li id="wmessage"><h2>Words</h2></li>
-					</ul>
-					<ul id="outputPhotos">
-						<li id="pmessage"><h2>Photos</h2></li>
-					</ul>
-				</section>
-				<footer data-role="footer" data-position="fixed" data-id="main" class="footer">
-				</footer>
 			</section>
         </div>
         
