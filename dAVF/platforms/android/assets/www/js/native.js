@@ -24,11 +24,6 @@ function fnDeviceReady() {
 };
 
 
-function fnGo() {
-    eData.preventDefault();
-    alert("hello");
-};
-
 /////// NATIVE FEATURE 1: DEVICE SPECIFICATIONS /////////////////////////
 
 var fnLogo = function () {

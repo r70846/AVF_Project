@@ -23,12 +23,6 @@ function fnDeviceReady() {
     fnLogo();                                       //Launch function that uses native "device" queries to detect platform & change logo
 };
 
-
-function fnGo() {
-    eData.preventDefault();
-    alert("hello");
-};
-
 /////// NATIVE FEATURE 1: DEVICE SPECIFICATIONS /////////////////////////
 
 var fnLogo = function () {

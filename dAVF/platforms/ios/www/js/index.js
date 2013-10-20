@@ -17,8 +17,6 @@ $('#home').on('pageinit', function(){
               
 });	
 	
-//Event binders	
-$('#goButton').on('click', fnGo);
 	
 
 
