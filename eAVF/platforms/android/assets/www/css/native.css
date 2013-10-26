@@ -1,12 +1,11 @@
 /*
 	Russell Gaspard
-	AVF 1310, Project 2
+	AVF 1310, Project 4
 	Mobile Development
 	Full Sail University
 */
 
 body{
-	background: #d8dff9;
 	background: #E0F2F7;
 	font-family:"Ariel", Sans-serif;
 	text-align:center;
@@ -36,13 +35,27 @@ input{
 	font-size:14px;
 }
 
-
-
 button{
+    background-color:#FFFF99;
+    background-color:#FFFFCC;
+    -webkit-border-radius:20px;
+    border: 2px solid #666;
+    
 	height: 40px;
     width:  100px;
 	float: center;
 }
+button:hover {
+    border: 2px solid #fff;
+}
+button:active {
+    border: 2px solid #fff;
+}
+
+button#goButton{
+	height: 25px;
+}
+
 
 button#home{
 	height: 30px;
