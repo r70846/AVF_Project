@@ -14,6 +14,7 @@ function fnDeviceReady() {
     $("#output").html('');                          //Make sure we have a clean page to report to
     
     //Event binders
+    $('#home').on('click', fnHome);					//Call function to navigate home
     $('#btnBrowser').on('click', fnBrowser);        //Launch function that uses native "in-app browser" funtionality to visit platform specifc site
     $('#btnPosition').on('click', fnPosition);      //Launch function to report Latitude and Longitude via native "geolocation"
     $('#btnHistory').on('click', fnHistory);        //Launch function to report position history as saved in native "local-storage"
@@ -22,9 +23,10 @@ function fnDeviceReady() {
     fnLogo();                                       //Launch function that uses native "device" queries to detect platform & change logo
 };
 
-
-
-
+/////// NAVIGATE HOME /////////////////////////
+var fnHome = function(){
+	window.location.href = "index.html";
+};
 
 /////// NATIVE FEATURE 1: DEVICE SPECIFICATIONS /////////////////////////
 

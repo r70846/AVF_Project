@@ -27,6 +27,17 @@ section.page{
 }
 
 @media screen and (max-device-width: 480px) {
+
+	section.page{
+		background: #e8e8e8;
+		background: #d8d8d8;
+    	padding:10%;
+	}
+    
+    section#author{
+        font-weight:bold;
+    }
+
     ul{
         max-width:90%;
     }

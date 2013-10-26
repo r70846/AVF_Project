@@ -11,16 +11,22 @@ document.addEventListener("deviceready", fnDeviceReady, false);
 function fnDeviceReady() {
         //alert("device ready");
     
-		$("#outputWords").html('<span id="wlabel"><h2>Words:</h2></span>');
+		$("#outputWords").html('<h2 id="wlabel">Words:</h2>');
 		$("#photoList").html('');				//Clear word display area & photo display areas
 		$('#kword').val('');                    //Clear keyword input field
         
         //Event binders
         $('#goButton').on('click', fnGo);		//Call function to process keyword
-    
+        $('#home').on('click', fnHome);			//Call function to navigate home
+        
         //Provide initial explanation/instruction
         $("#message").html("<hr/><p>Enter a key word above to generate related words and photos.<p><hr/>");
     
+};
+
+
+var fnHome = function(){
+	window.location.href = "index.html";
 };
 
 
@@ -60,7 +66,7 @@ var fnGo = function (eData){
     if(tag.length > 0){
     
         $("#message").html('');                     //Clear Connection Message
-        $("#outputWords").html('<span id="wlabel"><h2>Words:</h2></span>');
+        $("#outputWords").html('<h2 id="wlabel">Words:</h2>');
         $("#photoList").html('');					//Clear word display area & photo display areas
         
         fnConnection();							    //Call Show Connection type while loading
