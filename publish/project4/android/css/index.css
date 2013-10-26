@@ -1,0 +1,48 @@
+/*
+	Russell Gaspard
+	AVF 1310, Project 4
+	Mobile Development
+	Full Sail University
+*/
+
+section header.header{       //functioning but only with class attribute added
+	background: #2D303C;
+	color: #FFFFFF;
+	text-align:center;
+}
+
+
+
+.ui-btn{
+    background:#FFFFCC;
+}
+
+ul{
+    max-width:80%;
+}
+
+section.page{
+	background: #E0F2F7;
+    padding:10%;
+}
+
+@media screen and (max-device-width: 480px) {
+
+	section.page{
+		background: #e8e8e8;
+		background: #d8d8d8;
+    	padding:10%;
+	}
+    
+    section#author{
+        font-weight:bold;
+    }
+
+    ul{
+        max-width:90%;
+    }
+
+    section.page{
+        padding:5%;
+    }
+}
